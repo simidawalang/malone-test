@@ -20,6 +20,10 @@ $xl-up: (
   min-width: 1024px,
 );
 
+$xxl-up: (
+  min-width: 1280px,
+);
+
 $text-sm: 0.7rem;
 
 * {
@@ -35,17 +39,27 @@ a:hover {
 }
 
 // Input and buttons
+// input:-webkit-autofill {
+//   -webkit-box-shadow: 0 0 0px 1000px yellow inset;
+//   box-shadow: 0 0 0px 1000px yellow inset;
+// }
 .input {
   border: 1px solid $light-gray;
   padding: 0.5rem 0.8rem;
   margin-bottom: 1.5rem;
   & input {
     border: 0;
-    width: 95%;
+    width: 100%;
+    height: 30px;
     background-color: none;
     color: $blue;
-    &:-internal-autofill-selected {
-      background: none;
+    &:focus{
+      border: 0;
+    }
+    &:-webkit-autofill, &:-webkit-autofill:focus{
+      border: 0;
+      -webkit-box-shadow: 0 0 0px 1000px white inset;
+      box-shadow: 0 0 0px 1000px white inset;
     }
   }
   label {
@@ -127,7 +141,7 @@ a:hover {
       line-height: 30px;
     }
     @media screen and #{ $medium-up } {
-      width: 30ch;
+      max-width: 30ch;
       font-size: 35px;
       display: inline-block;
       line-height: 50px;
