@@ -3,7 +3,7 @@ import React from "react";
 const Input = ({ type, label, className, onChange }) => {
   return (
     <div className="input">
-      <p>{label}</p>
+      <label>{label}</label>
       <input className={className} type={type} onChange={onChange} />
     </div>
   );

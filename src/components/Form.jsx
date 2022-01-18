@@ -13,7 +13,7 @@ const Form = () => {
         <Input type="password" label="Password" />
       </div>
       <div className="forgot-password">
-        <div>
+        <div className="forgot-password-remember-me">
           <input type="checkbox" name="remember-me" />
           <label htmlFor="remember-me">Remember me</label>
         </div>
@@ -26,9 +26,9 @@ const Form = () => {
 
       <div className="login-alternatives">
         <p>Or login with: </p>
-        <a href="/">Facebook</a>
-        <a href="/">LinkedIn</a>
-        <a href="/">Google</a>
+          <a className="login-alternatives-link" href="/">Facebook</a>
+          <a className="login-alternatives-link" href="/">LinkedIn</a>
+          <a className="login-alternatives-link" href="/">Google</a>
       </div>
     </form>
   );

@@ -1,32 +1,105 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
+// Variables
+$blue: #3751fe;
+$light-gray: #c1bbbb;
+$transparent-black: rgba(0, 0, 0, 0.61);
+
+// Screen sizes
+$small-up: (
+  min-width: 375px,
+);
+$medium-up: (
+  min-width: 768px,
+);
+$large-up: (
+  min-width: 992px,
+);
+
+$xl-up: (
+  min-width: 1024px,
+);
+
+$text-sm: 0.7rem;
+
 * {
   margin: 0;
   padding: 0;
   font-family: "Roboto", sans-serif;
-  color: rgba(0, 0, 0, 0.61);
+  color: $transparent-black;
 }
 
 a,
 a:hover {
   text-decoration: none;
 }
+
+// Input and buttons
+.input {
+  border: 1px solid $light-gray;
+  padding: 0.5rem 0.8rem;
+  margin-bottom: 1.5rem;
+  & input {
+    border: 0;
+    width: 95%;
+    background-color: none;
+    color: $blue;
+    &:-internal-autofill-selected {
+      background: none;
+    }
+  }
+  label {
+    display: block;
+    font-size: $text-sm;
+  }
+  @media screen and #{ $medium-up } {
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.btn {
+  width: 80px;
+  height: 35px;
+  &:hover {
+    cursor: pointer;
+  }
+  &-login {
+    border: 1px solid $blue;
+    background: $blue;
+    color: white;
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+  }
+  &-signup {
+    border: 1px solid $blue;
+    background: none;
+    color: $blue;
+    margin-left: 2rem;
+  }
+  @media screen and #{ $large-up } {
+    width: 129px;
+    height: 54px;
+  }
+}
+
 .app {
   display: flex;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   & .left-col {
-    padding: 60px;
-    @media (min-width: 992px) {
+    padding: 30px;
+    @media screen and #{ $medium-up } {
+      padding: 60px;
+    }
+    @media #{ $large-up } {
       width: 40%;
       max-width: 700px;
     }
   }
   & .right-col {
     display: none;
-    @media (min-width: 992px) {
+    @media #{ $xl-up } {
       display: flex;
-      justify-content: stretch;
       justify-content: center;
       align-items: center;
       background: rgba(229, 229, 229, 0.41);
@@ -35,81 +108,95 @@ a:hover {
   }
   & .heading,
   & .sub-heading {
-    color: #3751fe;
+    color: $blue;
     letter-spacing: 1px;
     font-weight: bold;
   }
   & .heading {
-    font-size: 30px;
-    margin-bottom: 7rem;
-  }
-  & .sub-heading {
-    font-size: 35px;
-    display: inline-block;
-    line-height: 45px;
-  }
-}
-
-.input {
-  border: 1px solid #c1bbbb;
-  padding: 0.8rem 1rem;
-  margin-bottom: 1.5rem;
-  & input {
-    border: 0;
-    width: 95%;
-    padding: 0.5rem 0;
-    background-color: none;
-    color: #3751fe;
-    &:-internal-autofill-selected {
-      background: none !important;
+    font-size: 1rem;
+    margin-bottom: 3.5rem;
+    @media screen and #{ $medium-up } {
+      font-size: 30px;
+      margin-bottom: 7rem;
     }
   }
-}
-
-.btn {
-  width: 129px;
-  height: 54px;
-  &:hover {
-    cursor: pointer;
-  }
-  &-login {
-    border: 1px solid #3751fe;
-    background: #3751fe;
-    color: white;
-    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
-  }
-  &-signup {
-    border: 1px solid #3751fe;
-    background: none;
-    color: #3751fe;
-    margin-left: 2rem;
+  & .sub-heading {
+    font-size: 1.2rem;
+    @media screen and #{ $small-up } {
+      font-size: 1.5rem;
+      line-height: 30px;
+    }
+    @media screen and #{ $medium-up } {
+      width: 30ch;
+      font-size: 35px;
+      display: inline-block;
+      line-height: 50px;
+    }
   }
 }
 
 .login {
   &-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     & .welcome-back {
-      margin: 25px 0 40px 0;
+      font-size: $text-sm;
+      margin: 15px 0 20px 0;
+      @media #{ $medium-up } {
+        font-size: 1rem;
+        margin: 25px 0 40px 0;
+      }
+    }
+    &-btns {
+      display: flex;
+      @media screen and #{ $small-up } {
+        margin-top: 3rem;
+      }
     }
     & .forgot-password {
+      font-size: $text-sm;
       display: flex;
       justify-content: space-between;
-      margin-bottom: 2.5rem;
-    }
-    & input[type="checkbox"] {
-      margin-right: 0.8rem;
+      align-items: center;
+      margin-bottom: 1rem;
+      @media screen and #{ $small-up } {
+        margin-bottom: 1.5rem;
+      }
+      @media screen and #{ $medium-up } {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+      }
+      &-remember-me {
+        display: flex;
+        align-items: center;
+        & input[type="checkbox"] {
+          margin-right: 0.6rem;
+        }
+      }
     }
   }
   &-alternatives {
-    margin-top: 60px;
-    display: flex;
-    justify-content: space-between;
-    & a {
+    margin-top: 40px;
+    font-size: $text-sm;
+    @media screen and #{$small-up} {
+      margin-top: 60px;
+    }
+    @media screen and #{$medium-up} {
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    & p {
+      margin: 0 0 20px 0;
+      @media screen and #{ $medium-up } {
+        margin: 0;
+      }
+    }
+    &-link {
       font-weight: bold;
-      color: #3751fe;
+      color: $blue;
+      margin: 0 20px 0 0;
+      @media screen and #{ $medium-up } {
+        margin: 0;
+      }
     }
   }
 }
