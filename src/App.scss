@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  color: rgba(0, 0, 0, 0.61);
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+.app {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  & .left-col {
+    padding: 60px;
+    @media (min-width: 992px) {
+      width: 40%;
+      max-width: 700px;
+    }
+  }
+  & .right-col {
+    display: none;
+    @media (min-width: 992px) {
+      display: flex;
+      justify-content: stretch;
+      justify-content: center;
+      align-items: center;
+      background: rgba(229, 229, 229, 0.41);
+      width: 60%;
+    }
+  }
+  & .heading,
+  & .sub-heading {
+    color: #3751fe;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+  & .heading {
+    font-size: 30px;
+    margin-bottom: 7rem;
+  }
+  & .sub-heading {
+    font-size: 35px;
+    display: inline-block;
+    line-height: 45px;
+  }
+}
+
+.input {
+  border: 1px solid #c1bbbb;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1.5rem;
+  & input {
+    border: 0;
+    width: 95%;
+    padding: 0.5rem 0;
+    background-color: none;
+    color: #3751fe;
+    &:-internal-autofill-selected {
+      background: none !important;
+    }
+  }
+}
+
+.btn {
+  width: 129px;
+  height: 54px;
+  &:hover {
+    cursor: pointer;
+  }
+  &-login {
+    border: 1px solid #3751fe;
+    background: #3751fe;
+    color: white;
+    box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+  }
+  &-signup {
+    border: 1px solid #3751fe;
+    background: none;
+    color: #3751fe;
+    margin-left: 2rem;
+  }
+}
+
+.login {
+  &-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    & .welcome-back {
+      margin: 25px 0 40px 0;
+    }
+    & .forgot-password {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2.5rem;
+    }
+    & input[type="checkbox"] {
+      margin-right: 0.8rem;
+    }
+  }
+  &-alternatives {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    & a {
+      font-weight: bold;
+      color: #3751fe;
+    }
+  }
+}
+
+.clip-image {
+  img {
+    max-width: 700px;
+  }
+}
